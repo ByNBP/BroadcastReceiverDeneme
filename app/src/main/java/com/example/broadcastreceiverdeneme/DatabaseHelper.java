@@ -15,8 +15,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "deneme_table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
-    int i = 0;
-
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
 
@@ -38,12 +36,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean insertData(String name){
+    public boolean insertData(String name,int counter){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, name+" "+i);
-        i++;
-        Log.d("DATABASE",name + i + "kaydedildi !");
+        contentValues.put(COL_2, name+ " " +counter);
+        Log.d("DATABASE",name + counter + "kaydedildi !");
         long result = db.insert(TABLE_NAME,null,contentValues);
         if (result == -1){
             return false;
