@@ -26,7 +26,6 @@ public class BroadcastReceiverTest extends BroadcastReceiver {
             } else {
                 Toast.makeText(context, "connected !!", Toast.LENGTH_SHORT).show();
 
-
                 for (int i = 0; i < 20; i++) {
                     boolean isInserted = databaseHelper.insertData("deneme");
                     if (isInserted)
